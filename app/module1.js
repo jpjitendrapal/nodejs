@@ -1,9 +1,21 @@
 var http = require("http");
 
 var server = http.createServer(function(req, res){
-    console.log("Got the response");
-    res.write("Hi");
-    res.end();
+    try{
+        console.log("Got the response");
+        res.write("Hi");
+        res.end();
+    } catch(e){
+        console.log("There is some error"+e);
+        res.end();
+    }
+    
 });
 
-server.listen(80);
+try{
+    server.listen(80);
+    console.log("Server is runnning on 80 port");
+} catch(e){
+    console.log(e)
+}
+
